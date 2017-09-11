@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/entitizer/private-api-client-js#readme",
   "devDependencies": {
-    "@types/node": "^7.x.x",
+    "@types/node": "^8.x.x",
     "debug": "^2.6.3",
     "mocha": "^3.2.0",
     "npm-run-all": "^4.1.1",
@@ -45,6 +45,6 @@
     "typescript": "^2.4.2"
   },
   "dependencies": {
-    "whatwg-fetch": "^2.0.3"
+    "node-fetch": "^1.7.3"
   }
 }

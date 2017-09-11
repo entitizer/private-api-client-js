@@ -9,10 +9,10 @@ export class Query extends Request<QueryActions> {
     }
 
     entityById(params: { id: string }, options?: RequestMethodOptions) {
-        return this.add('entityById', { id: { value: params.id, type: 'String!' } }, this.buildOptions('entity', options));
+        return this.add('entityById', { id: { value: params.id, type: 'ID!' } }, this.buildOptions('entity', options));
     }
     entitiesByIds(params: { ids: string[] }, options?: RequestMethodOptions) {
-        return this.add('entitiesByIds', { ids: { value: params.ids, type: '[String]!' } }, this.buildOptions('entity', options));
+        return this.add('entitiesByIds', { ids: { value: params.ids, type: '[ID]!' } }, this.buildOptions('entity', options));
     }
     uniqueNamesByEntityId(params: { entityId: string }, options?: RequestMethodOptions) {
         return this.add('uniqueNamesByEntityId', { entityId: { value: params.entityId, type: 'String!' } }, this.buildOptions('uniquename', options));

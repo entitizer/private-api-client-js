@@ -1,4 +1,6 @@
 
+const fetch = require('node-fetch');
+
 export type OneEntityType = 'entity' | 'uniquename' | 'entitize';
 
 export type PlainObject<T> = {
@@ -44,8 +46,8 @@ export class Request<TM extends string> {
 
     exec(): Promise<ApiResult> {
         const body = this.buildRequestBody();
-        return fetch(this.options.endpoint, { method: 'POST', body: body, headers: { 'content-type': 'application/json' } })
-            .then(response => response.json());
+        return fetch(this.options.endpoint, { method: 'POST', body: JSON.stringify(body), headers: { 'content-type': 'application/json' } })
+            .then((response: any) => response.json());
     }
 
     private formatParamKey(key: string, name: string) {
@@ -108,7 +110,7 @@ function defaultFields(type: OneEntityType) {
         case 'entity':
             return `id name lang type wikiId wikiTitle`;
         case 'uniquename':
-            return `key name lang entityId uniquename`;
+            return `key name lang entityId uniqueName`;
         case 'entitize':
             return `concepts {index, value}
             entities {id name lang type wikiId wikiTitle data concepts {index value}}`;

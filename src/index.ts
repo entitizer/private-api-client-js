@@ -1,5 +1,4 @@
 
-import 'whatwg-fetch';
 import { ApiOptions } from './request';
 import { Query } from './query';
 import { Mutation } from './mutation';
