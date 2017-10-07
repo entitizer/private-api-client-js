@@ -1,6 +1,6 @@
 {
   "name": "entitizer.private-api-client",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Entitizer private api alient",
   "main": "./lib/index.js",
   "types": "./types/index.d.ts",

@@ -1,7 +1,7 @@
 
 import { Request, ApiOptions, RequestMethodOptions } from './request';
 
-export type MutationActions = 'entityCreate' | 'entityUpdate' | 'uniqueNameCreate' | 'uniqueNameDelete';
+export type MutationActions = 'entityCreate' | 'entityUpdate' | 'uniqueNameCreate' | 'uniqueNameDelete' | 'entityImport';
 
 export class Mutation extends Request<MutationActions> {
     constructor(options: ApiOptions) {
@@ -19,6 +19,9 @@ export class Mutation extends Request<MutationActions> {
     }
     uniqueNameDelete(params: { id: { key: string, entityId: string } }, options?: RequestMethodOptions) {
         return this.add('uniqueNameCreate', { id: { value: params.id, type: 'UniqueNameIDInput!' } }, this.buildOptions('uniquename', options));
+    }
+    entityImport(params: { id: string, lang: string }, options?: RequestMethodOptions) {
+        return this.add('entityImport', { id: { value: params.id, type: 'String!' }, lang: { value: params.lang, type: 'String!' } }, this.buildOptions('entity', options));
     }
 }
 
